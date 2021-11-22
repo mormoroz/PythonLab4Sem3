@@ -1,8 +1,8 @@
 from Time import Time
 
 class WorkDay(Time):
-
     __salary = 0
+
     def __init__(self, _surname = "None", _paymentHour = 0):
         self.__surname = _surname
         self.__paymentHour = _paymentHour
@@ -18,7 +18,7 @@ class WorkDay(Time):
 
     @property
     def paymentHour(self):
-        return self.__dayStart
+        return self.__paymentHour
 
     @paymentHour.setter
     def paymentHour(self, newPaymentHour):
@@ -26,10 +26,11 @@ class WorkDay(Time):
 
     #Set a salary for one day
     def CalculateSalary(self):
-        self.__salary = self.__paymentHour * self.__hour
+        self.__salary = self.__paymentHour * self.hour
+
     def __str__(self):
         return "Surname: {}\n" \
                 "Hour of work: {}\n" \
                 "Salary for one day: {}" \
-                .format(self.__surname, self.__paymentHour, self.__salary)
+                .format(self.__surname, self.hour, self.__salary)
         
